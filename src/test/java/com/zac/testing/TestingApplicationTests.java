@@ -1,4 +1,4 @@
-package com.zac.testing.testing;
+package com.zac.testing;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
