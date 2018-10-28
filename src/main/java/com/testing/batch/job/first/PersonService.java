@@ -59,7 +59,7 @@ public class PersonService {
 //	}
 //
     //@Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-	@Transactional
+//	@Transactional
 	public void createOne(Person person) {
 		personRepository.save(person);
 	}

@@ -13,6 +13,7 @@ public final class BatchConstants {
   public static final String FIRST_JOB_ITEM_READER_ID = "firstItemReader";
   public static final String FIRST_JOB_ITEM_PROCESSOR_ID = "firstItemProcessor";
   public static final String FIRST_JOB_ITEM_WRITER_ID = "firstItemWriter";
+  public static final String FIRST_JOB_REPOSITORY_ITEM_WRITER_ID = "firstRepositoryItemWriter";
   public static final String FIRST_JOB_EXECUTION_LISTENER_ID = "firstJobExecutionListener";
   
   public static final String STRESS_TESTING_JOB_ID = "stressTestingJob";

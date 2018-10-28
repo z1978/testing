@@ -14,6 +14,7 @@ import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,6 +53,9 @@ public class FirstJobConfiguration {
 
 	@Resource(name=BatchConstants.FIRST_JOB_EXECUTION_LISTENER_ID)
 	protected JobExecutionListener listener;
+	
+	@Autowired
+	private PersonRepository personRepository;
 
 	// TODO
 	@Bean
@@ -72,8 +76,17 @@ public class FirstJobConfiguration {
 				.<PersonDto, Person> chunk(chunckSize)
 				.reader(reader)
 				.processor(processor)
-//				.writer(writer)
+				.writer(writer)
+//				.writer(writer2())
 				.build();
+	}
+
+	@Bean
+	public RepositoryItemWriter<Person> writer2() {
+	    RepositoryItemWriter<Person> writer = new RepositoryItemWriter<>();
+	    writer.setRepository(personRepository);
+	    writer.setMethodName("save");
+	    return writer;
 	}
 
 }

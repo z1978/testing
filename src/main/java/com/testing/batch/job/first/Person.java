@@ -17,7 +17,9 @@ public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	//https://qiita.com/Kawata/items/62cbe83789b5a3c94bf7
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "person_id")
 	private Long personId;
 	
