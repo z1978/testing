@@ -9,9 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
 @Table(name="person")
+@Getter
+@Setter
 public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,33 +41,5 @@ public class Person implements Serializable {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-
-	public Long getPersonId() {
-		return personId;
-	}
-
-	public void setPersonId(Long personId) {
-		this.personId = personId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}	
 
 }
