@@ -1,5 +1,8 @@
 package com.testing.batch.job.first;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,18 +19,24 @@ public class FirstItemProcessor implements ItemProcessor<PersonDto, Person> {
 	@Autowired
 	private PersonService personService;
 
+	private static final DateFormat DF = new SimpleDateFormat(
+      "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+
+	
 	public Person process(PersonDto item) throws Exception {
 		
-		List<Person> list = personService.getAll();
+//		List<Person> list = personService.getAll();
 		
-		System.out.println(list.size());
+//		System.out.println(list.size());
 
 		final String firstName = item.getFirstName().toUpperCase();
 		final String lastName = item.getLastName().toUpperCase();
 
 		final Person transformed = new Person(firstName, lastName);
-
-		LOGGER.info("Converting (" + item + ") into (" + transformed + ")");
+//		System.out.println("==================================================");
+//    System.out.println("Processor time = [" + DF.format(new Date()) + "]");
+//    System.out.println("==================================================");
+//		LOGGER.info("Converting (" + item + ") into (" + transformed + ")");
 
 		return transformed;
 	}

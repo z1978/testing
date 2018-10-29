@@ -26,7 +26,7 @@ public class Person implements Serializable {
 	//https://qiita.com/Kawata/items/62cbe83789b5a3c94bf7
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "person_id")
-	private Long personId;
+	private Integer personId;
 	
 	@Column(name = "first_name")
 	private String firstName;

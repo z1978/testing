@@ -42,7 +42,11 @@ public class FirstItemReader extends FlatFileItemReader<PersonDto> implements St
 	public void beforeStep(StepExecution stepExecution) {
 
 		JobParameters jobParameters = stepExecution.getJobParameters();
-		String filePath = jobParameters.getString("filePath");
+//		String filePath = jobParameters.getString("filePath");
+//		String filePath = csvInputPath + "result_entry_100.csv";
+		String filePath = csvInputPath + "result_entry_600000.csv";
+		
+		System.out.println(filePath);
 		LOGGER.info("filePath = [{}].", filePath);
 
 		// TODO 

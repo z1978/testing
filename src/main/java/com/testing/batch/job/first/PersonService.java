@@ -44,6 +44,12 @@ public class PersonService {
 	public void deleteAll() {
 		personRepository.deleteAll();
 	}
+	
+	@Transactional(readOnly = true)
+  public List<Person> findAllByPersonIdDesc() {
+    return personRepository.findAllByPersonIdDesc();
+
+  }
 
 //	public PersonService(PersonRepository personRepository) {
 //		this.personRepository = personRepository;
@@ -72,5 +78,16 @@ public class PersonService {
 //	public void saveOne(Person person) {
 //		personRepository.saveAndFlush(person);
 //	}
+	
+	public void addOne(Person person) {
+	  personRepository.insertPersonOne(person.getPersonId(), person.getFirstName(), person.getLastName());
+	}
 
+	public void delAll() {
+	  personRepository.deleteAll();	  
+	}
+	
+	public void saveAll(List<? extends Person> entities) {
+    personRepository.saveAll(entities);
+  }
 }

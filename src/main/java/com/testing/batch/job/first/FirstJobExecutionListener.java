@@ -32,23 +32,23 @@ public class FirstJobExecutionListener extends JobExecutionListenerSupport {
 		if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
 			LOGGER.info("!!! JOB FINISHED! Time to verify the results");
 
-			List<PersonDto> results = jdbcTemplate.query("SELECT first_name, last_name FROM person", new RowMapper<PersonDto>() {
-				public PersonDto mapRow(ResultSet rs, int row) throws SQLException {
-					String firstName = rs.getString(1);
-					String lastName = rs.getString(2);
-					return new PersonDto(firstName, lastName);
-				}
-			});
-
-			int nbResults = ((results == null) ? 0 : results.size());
-			LOGGER.info("Found {} entities in the database.", nbResults);
-			if (results != null) {
-				int index = 0;
-				for (PersonDto person : results) {
-					index++;
-					LOGGER.info("{}/{}: Found <{}> in the database.", index, nbResults, person);
-				}
-			}
+//			List<PersonDto> results = jdbcTemplate.query("SELECT first_name, last_name FROM person", new RowMapper<PersonDto>() {
+//				public PersonDto mapRow(ResultSet rs, int row) throws SQLException {
+//					String firstName = rs.getString(1);
+//					String lastName = rs.getString(2);
+//					return new PersonDto(firstName, lastName);
+//				}
+//			});
+//
+//			int nbResults = ((results == null) ? 0 : results.size());
+//			LOGGER.info("Found {} entities in the database.", nbResults);
+//			if (results != null) {
+//				int index = 0;
+//				for (PersonDto person : results) {
+//					index++;
+//					LOGGER.info("{}/{}: Found <{}> in the database.", index, nbResults, person);
+//				}
+//			}
 		}
 	}
 }
